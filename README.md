@@ -52,14 +52,62 @@ Y0=s1′s0′I <br>
 
 
 ## Program:
+# MULTIPLEXER :
+```
+module exp7a(I0,I1,I2,I3,s1,s0,y);
+input I0,I1,I2,I3,s0,s1;
+output y;
+wire p,q,r,s,s1d,s0d;
+not(s1d,s1);
+not(s0d,s0);
+and(p,s1d,s0d,I0);
+and(q,s1d,s0,I1);
+and(r,s1,s0d,I2);
+and(s,s1,s0,I3);
+or(y,p,q,r,s);
+endmodule 
+```
+# DE-MULTIPLEXER :
+```
+module exp7b(I,s1,s0,y3,y2,y1,y0);
+input I,s1,s0;
+output y3,y2,y1,y0;
+wire s1d,s0d;
+not(s1d,s1);
+not(s0d,s0);
+and(y3,s1,s0,I);
+and(y2,s1,s0d,I);
+and(y1,s1d,s0,I);
+and(y0,s1d,s0d,I);
+endmodule 
+```
+
+
+
 
 
 ## RTL Schematic:
+
+### MULTIPLEXER
+
+![Screenshot 2023-06-01 221503](https://github.com/MOHAMEDGOWS/Mux-Demux/assets/117954463/f3b5147a-e504-4408-bf5f-7dd78fb3d411)
+
+### DE-MULTIPLEXER
+
+![Screenshot 2023-06-01 223608](https://github.com/MOHAMEDGOWS/Mux-Demux/assets/117954463/0420eb7f-b526-4521-876c-8194abfd5784)
 
 
 
 
 ## Timing Diagram:
+
+### MULTIPLEXER
+
+![Screenshot 2023-06-01 222228](https://github.com/MOHAMEDGOWS/Mux-Demux/assets/117954463/29e06f7f-211a-40e7-b3d6-81861a25fc20)
+
+### DE- MULTIPLEXER
+![Screenshot 2023-06-01 224435](https://github.com/MOHAMEDGOWS/Mux-Demux/assets/117954463/b8884636-c037-4f0e-9a42-df6638a701af)
+
 
 
 
